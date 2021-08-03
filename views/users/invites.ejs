@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/reservations.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <h1>Your Invitations</h1>
+        <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
+        <% if(invites.length > 0) { %>
+        <ul id="invitation-list" class="">
+            <% invites.forEach(x => { %>
+                <li class='list-item spaced-container'>
+                    <div class="titles">
+                        <h2><%= x.name %></h2>
+                        <div><%= x.location %></div>
+                    </div>
+                    <div class="stack-box">
+                        <div>Admins:</div>                        
+                        <% x.admins.forEach( admin => { %>
+                          <div><%= admin.displayName %></div>                        
+                        <% }) %>                        
+                    </div>                    
+                    <div class="stack-box adjustable-box">
+                        <button id="<%= x._id %>">Accept</button>
+                        <button id="d_<%= x._id %>">Delete</button>
+                    </div>                    
+                </li>                
+           <% }) %>          
+        </ul>
+        <% } else { %>
+          <p>You have no current invitations</p>
+        <% } %>
+        <div id="viewProperties" class="faux-button">
+          <a href="/user/list">
+            View Your Properties
+          </a>
+        </div>
+    </main>
+    <script src="/scripts/fetch.js"></script>
+    <script src="/scripts/invites.js"></script>
+<%- include('../includes/end.ejs') %>

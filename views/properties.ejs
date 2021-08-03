@@ -1,0 +1,50 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/form.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+    <%- include('./includes/nav.ejs') %>
+    <main>        
+        <div class="user-message user-message--error invisible" id="errorBox">          
+        </div>
+        
+        <% if(properties.length > 0) { %>
+            <div class="container">
+                <div>
+                    <h1 class="directions">Select a property</h1>
+                </div>
+                <ul id="property-list" class=""> 
+                    <% for (let property of properties) { %>
+                        <a class="no-underline" href="<%= address + property._id %>">
+                            <div style="position: relative;">
+                                <li class="selectable-list-item">
+                                    <div>
+                                        <%= property.name %>
+                                    </div>
+                                    <div class="alt-text">
+                                        <%= property.location %>
+                                    </div>
+                                </li>
+                            </div>
+                        </a>
+                    <% } %>
+                </ul>    
+            </div>
+        <% } else { %> 
+            <% if (isAdmin) { %>
+                <h2>You are not an admin for any properties.</h2>
+            <% } else { %>
+                <h2>You are not currently a member of any properties. Please contact your property admin to be invited to a property.</h2>
+            <% } %>
+        <% } %> 
+        <% if (isAdmin) { %>
+            <div class="admin-property-btns">
+                <a href="/admin/property" class="faux-button new-property-btn">Create New Property</a>
+                <a href="/admin/reservations" class="faux-button new-property-btn">Manage All Reservations</a>
+            </div>
+        <% } %>
+        <input type="hidden" id="isAdmin" value="<%= isAdmin %>">
+    </main>
+    <!-- <script src="/scripts/properties.js"></script> -->
+<%- include('./includes/end.ejs') %>

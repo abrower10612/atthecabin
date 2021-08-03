@@ -1,0 +1,38 @@
+{
+  "name": "cabinapp",
+  "version": "1.0.0",
+  "description": "Application to manage family vacation properties",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Jef Rowley, Casey Spence, Alex Krentz, Andrew Brower, John Brooke, Abby Annis",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.0",
+    "heroku": "^7.56.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.9",
+    "mongoose": "^5.12.14",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.6.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^2.0.7",
+    "serve-favicon": "^2.5.0"
+  }
+}

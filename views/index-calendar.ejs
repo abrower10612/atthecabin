@@ -1,0 +1,53 @@
+<!-- <%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/calendar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .date-grid button:first-child {
+            grid-column: <%= startDay %>;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <%- include('includes/nav.ejs') %>
+        <div class="main-grid">
+            <div class="calendar">
+                <div class="month-indicator"> 
+                    <% if ((month > currentMonth && year === currentYear) ||
+                            year > currentYear) { %>
+                        <button><</button>
+                    <% } %>
+                    <%= monthName %> <%= year %> 
+                    <button>></button>
+                </div>
+                <div class="day-of-week">
+                    <div>S</div>
+                    <div>M</div>
+                    <div>T</div>
+                    <div>W</div>
+                    <div>T</div>
+                    <div>F</div>
+                    <div>S</div>
+                </div>
+                <div class="date-grid">
+                    <%for (i = 0; i < dates.length; i++) { %>
+                        <button class="<%= !dates[i].available ? 'unavailable' : '' %>"><time datetime="<%= dates[i].date %>"><%= dates[i].date.getDate() %></time></button>
+                    <% } %> 
+                </div>
+            </div>
+            <div class="image-grid">
+                <% for (i = 0; i < images.length; i++) { %>
+                    <div class="image-container">
+                        <img src="<%= images[i] %>" alt="<%= images[i] %>">
+                    </div>
+                <% } %>
+            </div>
+            <div class="weather-info">
+                <h1>Weather Info Here</h1>
+            </div>
+        </div>
+        
+          
+    </main>
+<%- include('includes/end.ejs') %> -->

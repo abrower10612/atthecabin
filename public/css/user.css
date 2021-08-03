@@ -1,0 +1,55 @@
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.container {
+    width: 45rem;
+    margin-top: 5rem;
+}
+
+.image {
+    float: left;
+    width: 13vw;
+    height: 13vw;
+    margin-right: 1rem;
+}
+
+.content {
+    color: #353b3a;
+    padding-top: 2rem;
+    width: 45rem;
+}
+
+.links a {
+    font-size: 1.5rem;
+    color: #536863;
+}
+
+@media screen and (max-width: 900px) {
+    .avatar {
+        margin-top: 1rem;
+        width: 95%;
+        height: 95%;
+    }
+    .image {
+        width: 80vw;
+        height: 80vw;
+        text-align: center;
+    }
+    .container {
+        width: 80vw;
+        margin: 1rem auto;
+        padding: 0;
+    }
+    .content {
+        text-align: center;
+        float: left;
+        width: 80vw;
+        margin: 0;
+    }
+    .content h2 {
+        font-size: 1.5rem;
+    }
+}

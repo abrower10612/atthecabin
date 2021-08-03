@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <h1>Invite to <%= property.name %></h1>
+        <p>Enter an email address below and we'll notify the individual of your invitation.</p>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="login-form" action="/admin/properties/<%= property._id %>/invite" method="POST">
+            <div class="form-control">
+                <label for="email">Email Address</label>
+                <input
+                    autocomplete="email"
+                    class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" 
+                    type="text" 
+                    name="email" 
+                    id="email" 
+                    value="<%= email %>"
+                >
+            </div>            
+            <div class="text-center">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">                
+                <input type="hidden" name="cabin" value="<%= property.name %>">                
+                <button class="btn btn-default" id="send">Invite</button>
+            </div>
+        </form>        
+    </main>
+<%- include('../includes/end.ejs') %>

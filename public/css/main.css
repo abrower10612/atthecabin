@@ -1,0 +1,337 @@
+.no-scroll {
+    overflow-y: hidden;
+}
+
+:root {
+    --alt-color: #6a837d;
+    --main-color: #0b3d44;
+    --border-color: #8cb1a8;
+}
+
+.main-header {
+    width: 100%;
+    height: 3.5rem;
+    background-color: white;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.main-header-nav {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.main-header-item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-header-item,
+.main-header-item-name {
+    margin: 0 1rem;
+    padding: 0;
+}
+
+.main-header-item a,
+.main-header-item button {
+    font: inherit;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--alt-color);
+    cursor: pointer;
+}
+
+.main-header-item a:hover,
+.main-header-item a:active,
+.main-header-item a.active,
+.main-header-item button:hover,
+.main-header-item button:active {
+    color: var(--main-color);
+    border-bottom: 5px solid var(--border-color);
+}
+
+.user-message {
+    margin: auto;
+    margin-bottom: 1rem;
+    width: 95%;
+    border: 1px solid var(--main-color);
+    background: var(--main-color);
+    padding: 0.5rem;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.user-message--error {
+    border: #B00000;
+    background: #B00000;
+}
+
+.invisible {
+    display: none;
+}
+
+.selectable-list-item {
+    list-style: none;
+    padding: 20px 20px;
+    margin: 10px 10px;
+    max-width: 90%;
+    /* box-shadow: 7px 7px 16px -9px #000000; */
+    border: 0px solid var(--alt-color);
+    border-radius: 5px;
+    background-color: var(--alt-color);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;    
+}
+
+.selectable-list-item:hover {
+    cursor: pointer;
+}
+
+.alt-text {
+    font-size: 1.25rem;
+}
+.slider-container {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+}
+
+.slider-card {
+    position: absolute;
+    top: 10vw;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    background: transparent;
+    border: 0;
+}
+
+.slider-text {
+    width: 40rem;
+    margin: auto;
+    background: white;
+    border-radius: 5px;
+}
+
+.faux-button a {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    border: 0 solid var(--alt-color);
+}
+
+button:hover,
+.faux-button:hover {
+    cursor: pointer;
+    background-color: var(--alt-color);
+    color: white;
+}
+
+.faux-button {
+    display: block;
+    width: 95%;
+    margin: 0.5rem;
+    padding: 0.75rem;
+    background-color: var(--alt-color);
+    color: var(--alt-color);
+    text-align: center;    
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    border: 0 solid var(--alt-color);
+}
+
+.faux-button:hover {
+    text-decoration: none;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    margin: 0.5rem;
+    background-color: white;    
+    text-align: center;    
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: var(--alt-color);
+    text-decoration: none;
+    border: 1px solid var(--alt-color);
+}
+.no-underline {
+    text-decoration: none;
+}
+
+.no-underline:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+    .no-scroll {
+        overflow-y: visible;
+    }
+
+    .slider-card {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -0%);
+        width: 95%;
+    }
+    .slider-text {
+        width: 100%;
+    }
+    .faux-button a {
+        font-size: 1rem;
+    }
+    .slider-container img {
+        visibility: hidden; 
+    }
+}
+
+.logout-button {
+    background-color: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    width: inherit;
+    height: inherit;
+    text-align: center;    
+    border: 0;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    background-color: white;
+    border-radius: 0;
+    border: 0;
+    outline: none;
+}
+
+.logout-button:focus {
+    outline: none;
+}
+
+.directions {
+    margin: 1rem 0;
+    color: var(--main-color);
+}
+
+.header_image {
+    height: 8vw;
+}
+.main-header-list-mobile {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 800px) {
+    .header_image {
+        width: 95%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .main-header {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-header-nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .main-header-item-list {
+        display: none;
+    }
+
+    .main-header-list-mobile {
+        visibility: visible;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .main-header-item a {
+        width: 100%;
+        color: var(--main-color);
+    }
+
+    li.main-header-item {
+        width: 100%;
+    }
+
+    a.active {
+        width: 100%;
+        color: white;
+    }
+
+    .dropdown {
+        margin: 0;
+        padding: 0;
+        background-color: var(--alt-color);
+        width: 100%;
+        color: white;
+        padding: 1rem 1rem 1rem 0;
+        font-weight: normal;
+    }
+
+    .top-menu {
+        margin: 0 1rem;
+        padding: 0;
+        background-color: var(--alt-color);
+        width: 100%;
+        color: white;
+        padding: 1rem 1rem 1rem 0;
+        font-weight: normal;
+    }
+
+    .top-menu:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    .dropdown-menu {
+        width: 95%;
+        margin-left: -1rem;
+        border: 0;
+    }
+
+    .dropdown-menu li {
+        width: 100%;
+        text-decoration: none;
+    }
+
+    .faux-button {
+        width: 80vw;
+        margin: 0.5rem auto;
+        font-size: 5vw;
+    }
+    .selectable-list-item {
+        width: 95%;
+        margin: 1rem auto;
+        font-size: 1.25rem;
+        font-weight: normal;
+    }
+
+    .selectable-list-item h2 {
+        font-size: 1.75rem;
+    }
+
+    .directions {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,59 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>        
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form 
+            name="property-data"
+            class="login-form"
+            action="<%= edit ? `/admin/properties/update/${property._id}` : '/admin/properties' %>"
+            method="post"
+        >
+            <div class="form-control">
+                <label for="name">Property Name</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'name') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    value="<%= property ? property.name : '' %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="location">Property Location</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'location') ? 'invalid' : '' %>"    
+                    type="text" 
+                    name="location" 
+                    id="location" 
+                    value="<%= property ? property.location : '' %>"
+                >
+            </div>
+            <div class="form-control">
+                <!-- <label for="imageUrls">Images</label> -->
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'imageUrls') ? 'invalid' : '' %>"
+                    type="hidden" 
+                    name="imageUrls" 
+                    id="imageUrls" 
+                >
+            </div>
+            <div class="centered">
+                <input type="hidden" name="userId" value="<%= currentUser %>">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="btn btn-default" type="submit"><%= edit ? 'Edit Property' : 'Add Property' %></button>                
+            </div>            
+        </form>
+        <% if (edit) { %>
+        <form name="delete-form" id="delete-form" class="centered" action='/admin/properties/delete/<%= property._id %>' method='post'>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn property-delete-btn" type="submit">Delete Property</a>
+        </form>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>

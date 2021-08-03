@@ -1,0 +1,52 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/user.css">
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+      <div class="inventory-form centered">
+        <h2><%= name %></h2>
+        <h4><%= location %></h4>
+      </div>
+      <% if (checklist) { %>
+      <form class="inventory-form" action="/checklist/update" method="POST">
+        <h4 class="centered"><%= checklist.title %></h4>
+        <div class="center-inventory">
+          <label class="inventory-input-label">Active Checklists</label>
+        </div>
+        <div class="inventory-control">
+          <% for (let item of checklist.list) { %>
+            <div class="center-inventory">
+                <input type="text" class="checklist-description-input" name="description" value="<%= item.description %>"> 
+                <input type="hidden" name="itemId" value="<%= item._id %>">
+                <a class="delete-button" href="/checklist/delete/?listId=<%= listId %>&itemId=<%= item._id %>&propertyId=<%= propertyId %>">x</a>
+                <a class="delete-button-mobile" href="/checklist/delete/?listId=<%= listId %>&itemId=<%= item._id %>&propertyId=<%= propertyId %>">Delete: <%= item.description.substring(0, 15) %> . . . </a>
+            </div>
+            <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="propertyId" value="<%= propertyId %>">
+            <input type="hidden" name="listId" value="<%= listId %>">
+            <button class="update-button" type="submit" name="update">Update All</button>
+          </div>
+      </form>
+      <% } else { %>
+        <div class="inventory-form centered">
+          <h4>No checklist is associated with this property. Add an item below to set up list.</h4>
+        </div>
+      <% } %>
+    <form class="inventory-form"action="/checklist/addTask" method="POST">
+      <h4 class="centered">Add Tasks to Checklist</h4>
+      <div class="center-inventory">
+        <input type="text" class="checklist-description-input" name="description" placeholder="Enter Description">
+      </div>
+      <button type="submit" class="update-button" name="button">Add Task</button>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <input type="hidden" name="propertyId" value="<%= propertyId %>">
+      <input type="hidden" name="listId" value="<%= listId %>">
+
+  </form>
+  
+    </main>
+<%- include('../includes/end.ejs') %>

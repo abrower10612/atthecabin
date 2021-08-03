@@ -1,0 +1,81 @@
+:root {
+  --alt-color: #6a837d;
+  --main-color: #0b3d44;
+  --border-color: #8cb1a8;
+}
+
+.spaced-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;      
+}
+
+.list-item {
+  list-style: none;    
+  max-width: 90%;
+  padding: 20px 20px;
+  margin: 10px 10px;
+  box-shadow: 7px 7px 16px -9px #000000;
+  border: 1px solid var(--main-color);
+  background-color: var(--border-color);
+  color: white;
+  font-size: 1.25rem;         
+}
+
+.list-item h2 {
+  font-size: 1.75rem;
+  font-weight: bold; 
+}
+
+.titles {
+  min-width: 200px;
+}
+
+.stack-box {
+  margin: 0px 10px;
+  padding: 5px 5px;  
+}
+
+#viewProperties {
+  width: 400px;
+  margin: 40px 0px 20px 20px;
+}
+
+.buttons {
+  width: 7vw;
+  font-size: 2rem;
+  background-color: white;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: normal;
+  color: var(--alt-color);
+  margin: 0.25vw 0;
+}
+
+.buttons:hover {
+  text-decoration: none;
+  background-color: white;
+  color: var(--alt-color);
+}
+
+@media screen and (max-width: 700px) {
+  .spaced-container {    
+    display: flex;
+    flex-direction: column;
+    justify-content: none;
+  }
+
+  .adjustable-box {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .adjustable-box * {
+    margin-right: 10px;
+  }  
+
+  .buttons {
+    width: 95%;
+    float: left;
+  }
+}

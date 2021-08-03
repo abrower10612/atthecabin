@@ -1,0 +1,296 @@
+.login-form {
+    width: 20rem;
+    padding: 1rem 0;
+    max-width: 90%;
+    margin: 1rem auto;
+    display: block;
+    border: 1px solid #8cb1a8;
+    border-radius: 2px;
+}
+
+.inventory-form {
+  width: 40rem;
+  padding: 1rem 1rem;
+  max-width: 90%;
+  margin: 1rem auto;
+  display: block;
+  border: 1px solid #8cb1a8;
+  border-radius: 2px;
+}
+
+.inventory-form label {
+  font-weight: bold;
+}
+
+.form-control {
+    border: 0;
+}
+
+.form-control label {
+    font-weight:bold;
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea,
+btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+.form-control input,
+.form-control textarea {
+    border: 1px solid #8cb1a8;
+    font: inherit;
+    border-radius: 2px;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline-color: #8cb1a8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    font: inherit;
+    border: 1px solid #6a837d;
+    color: #6a837d;
+    background: white;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 1rem;
+    width: 50%;
+  }
+
+  .property-delete-btn {
+    max-width: 200px;
+    color: red;
+    border: solid 1px red;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    background-color: #6a837d;
+    color: white;
+  }
+
+  .btn_inline {
+    float: left;
+  }
+
+  .btn_flex {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: auto;
+  }
+
+  .form-control input.invalid,
+  .form-control textarea.invalid {
+    border-color: #B00000;
+    border-width: 2px;
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  .form-control {
+    border: 0;
+  }
+
+  .center-inventory {
+    width: 95%;
+    margin: auto;
+  }
+
+  .inventory-control label {
+      font-weight:bold;
+  }
+
+  .inventory-input {
+      float: left;
+      width: 61%;
+      margin: 0.25rem;
+      border: 1px solid #8cb1a8;
+      font: inherit;
+      border-radius: 2px;
+  }
+
+  .inventory-input-label {
+    font-weight: bold;
+    float: left;
+    width: 61%;
+    margin: 0.25rem;
+    border: 0 solid white;
+    font: inherit;
+    border-radius: 2px;
+}
+
+  .inventory-control input:focus {
+      outline-color: #8cb1a8;
+  }
+
+  .inventory-amt {
+    float: left;
+    width: 30%;
+    margin: 0.25rem;
+    border: 1px solid #8cb1a8;
+    font: inherit;
+    border-radius: 2px;
+    text-align: center;
+  } 
+
+  .inventory-amt-label {
+    float: left;
+    width: 35%;
+    margin: 0.25rem;
+    border: 0 solid white;
+    font: inherit;
+    border-radius: 2px;
+    text-align: left;
+  } 
+
+  .inventory-amt-add {
+    float: left;
+    width: 35%;
+    margin: 0.25rem;
+    border: 1px solid #8cb1a8;
+    font: inherit;
+    border-radius: 2px;
+    text-align: center;
+  } 
+
+  .delete-button {
+    display: inline-flex;
+    width: 1rem;
+    height: 1rem;
+    margin: 0.3rem 0 0.25rem 0.25rem;
+    margin-right: 0;
+    padding: 0.65rem 1.35rem 1.05rem 0.35rem;
+    background-color: #AD0000;
+    color: white;
+    border: none;
+    vertical-align: middle;
+    align-items: center;
+    font-size: 1.75rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+  }
+
+  .delete-button:hover {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+  }
+
+  .center-inventory::a {
+    text-align: center;
+  }
+
+  .checklist-title-input {
+    float: left;
+    width: 31%;
+    margin: 0.25rem;
+    border: 1px solid #8cb1a8;
+    font: inherit;
+    border-radius: 2px;
+}
+
+.checklist-description-input {
+  float: center;
+  width: 90%;
+  margin: 0.25rem;
+  border: 1px solid #8cb1a8;
+  font: inherit;
+  border-radius: 2px;
+}
+  
+  .delete-button-mobile {
+    display: inline-block;
+    width: 100%;
+    margin: 0.3rem 0 0.25rem 0.25rem;
+    margin-right: 0;
+    padding: 0.25rem;
+    background-color: #AD0000;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 0.85rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 3px;
+  }
+
+  .delete-button-mobile:hover {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+  }
+
+  .update-button {
+    width: 94%;
+    margin: 1rem 1.1rem;
+    height: 2.5rem;
+    padding: 0;
+    background-color: var(--alt-color);
+    color: var(--alt-color);
+    text-align: center;    
+    border-radius: 5px;
+    font-size: 1.25rem;
+    color: white;
+    text-decoration: none;
+    border: 0 solid var(--alt-color);
+}
+
+  @media screen and (max-width: 800px) {
+    .centered,
+    .btn {
+      width: 95%;
+      margin: 0.5rem auto;
+    }
+
+    .inventory-input-label {
+      width: 100%;
+    }
+
+    .inventory-amt-add {
+      width: 100%;
+    }
+
+    .update-button {
+      margin: 1rem 0.75rem;
+    }
+
+    .inventory-form label {
+      display: none;
+    }
+
+    .inventory-input {
+      width: 100%;
+    }
+
+    .inventory-amt {
+      width: 100%;
+    }
+
+    .delete-button {
+      display: none;
+    }
+
+    .checklist-description-input {
+      width: 100%;
+    }
+  }
+  
+  .checkbox-label {
+    font-weight: lighter;
+    width: 95%;
+  }
+
+  @media screen and (min-width: 800px) {
+    .delete-button-mobile {
+      display: none;
+    }
+  }

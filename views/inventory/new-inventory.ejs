@@ -1,0 +1,18 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/user.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+    <form class="cabin-inventory"action="/inventory/inventory" method="POST">
+      <input type="text" class="" name="inventory" placeholder="Enter Item">
+      <input type="number" class="" name="amount" placeholder="Enter Amount">
+      <button type="submit" name="button">Add</button>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <input type="hidden" name="propertyId" value="<%= propertyId %>">
+  </form>
+  
+    </main>
+<%- include('../includes/end.ejs') %>

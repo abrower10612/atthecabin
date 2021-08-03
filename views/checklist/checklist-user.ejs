@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/user.css">
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+      <div class="inventory-form centered">
+        <h2><%= name %></h2>
+        <h4><%= location %></h4>
+      </div>
+      <% if (checklist) { %>
+      <form class="inventory-form" action="/checklist/userUpdate" method="POST">
+        <h4 class="centered"><%= checklist.title %></h4>
+        <div class="inventory-control">
+          <% for (let item of checklist.list) { %>
+            <div class="center-inventory">
+                <input type="checkbox" class="checkbox" name="description" value="<%= item._id %>">
+                <label class="checkbox-label" for="<%= item.description %>"><%= item.description %></label> 
+                <input type="hidden" name="itemId" value="<%= item._id %>">
+            </div>
+            <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="propertyId" value="<%= propertyId %>">
+            <input type="hidden" name="listId" value="<%= checklist._id %>">
+            <button class="update-button" type="submit" name="update">Submit List</button>
+          </div>
+      </form>
+      <% } else { %>
+        <div class="inventory-form centered">
+          <h4>No checklist is associated with this property.</h4>
+        </div>
+      <% } %>
+  
+    </main>
+<%- include('../includes/end.ejs') %>

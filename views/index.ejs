@@ -1,0 +1,73 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/calendar.css">
+</head>
+
+<body class="no-scroll">
+    <%- include('includes/nav.ejs') %>
+    <main>
+        <div class="slider-container">
+            <div class="">
+                <div class="">
+                    <div id="image-slider" class="carousel slide" data-ride="carousel">
+                        <!-- <ol class="carousel-indicators">
+                            <% if (images.length > 0) { count = 0; %>
+                                <% for (let image of images) { %>
+                                    <li data-target="#image-slider" data-slide-to="<%= count %>" class="<% if (count === 0) { %>active<% } %>"></li>
+                                <% count++; } %> 
+                            <% } %>
+                        </ol> -->
+                        <div class="carousel-inner" role="listbox">
+                            <% if (images.length > 0) { count = 0; %>
+                                <% for (let image of images) { %>
+                                <div class="carousel-item <% if (count === 0) { %>active<% } %>">
+                                    <div class="">
+                                        <div class="">
+                                            <div class="">
+                                                <img src="<%= image.imageUrl %>"
+                                                    alt="" class="d-block w-100">
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <% count++; } %>
+                            <% } else { %>
+                                <h1>No images Found!</h1>
+                            <% } %>  
+                        </div>
+                        <div class="card slider-card card-index mb-3 d-block w-100">
+                            <div clss="row no-gutters">
+                                <div class="slider-text">
+                                    <div class="col-md-12">
+                                        <div class="card-body">
+                                            <% if (!isAuthenticated) { %>
+                                                    <a class="faux-button" href="auth/login">Login</a>
+                                                    <a class="faux-button" href="auth/signup">Register</a>
+                                            <% } else { %>
+                                                    <a class="faux-button" href="/user/list">Make a Reservation</a>
+                                                    <a class="faux-button" href="/reservation">View Reservations</a>
+                                                    <a class="faux-button" href="/user/invites">Manage Property Invites</a>
+                                                    <a class="faux-button" href="/checklist/checklist-user">Checklists</a>
+                                                    <a class="faux-button" href="/inventory/update">Inventory</a>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <a class="carousel-control-prev" href="#image-slider" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#image-slider" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>          
+          
+    </main>
+<%- include('includes/end.ejs') %>

@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/user.css">
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+      <div class="inventory-form centered">
+        <h2><%= name %></h2>
+        <h4><%= location %></h4>
+      </div>
+      <% if (checklist) { %>
+      <form class="inventory-form"action="/checklist/new-checklist" method="POST">
+        <h4 class="centered">Active Checklists</h4>
+        <div class="center-inventory">
+        </div>
+        <div class="centered">
+            <% for (list of checklist) { %>
+                <a class="btn" href="/checklist/checklist/?listId=<%= list._id %>&propertyId=<%=propertyId%>"><%= list.title %></a>
+                <a class="delete-button" href="/checklist/deleteList/?propertyId=<%= propertyId %>&listId=<%= list._id %>">x</a>
+                <a class="delete-button-mobile" href="/checklist/deleteList/?propertyId=<%= propertyId %>&listId=<%= list._id %>">Delete <%= list.title %></a>
+           <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="propertyId" value="<%= propertyId %>">
+          </div>
+      </form>
+      <% } else { %>
+        <div class="inventory-form centered">
+          <h4>No checklist is associated with this property. Add an item below to set up list.</h4>
+        </div>
+      <% } %>
+    <form class="inventory-form"action="/checklist/checklist" method="POST">
+      <h4 class="centered">Add New Checklist</h4>
+      <div class="centered">
+        <input type="text" class="checklist-description-input" name="title" placeholder="Enter Title">
+      </div>
+      <button type="submit" class="update-button" name="button">Add Checklist</button>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <input type="hidden" name="propertyId" value="<%= propertyId %>">
+  </form>
+  
+    </main>
+<%- include('../includes/end.ejs') %>

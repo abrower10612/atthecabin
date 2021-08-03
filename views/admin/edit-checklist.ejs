@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <main>
+        <%- include('../includes/nav.ejs') %>
+        <h1>Cabin Checklist</h1>
+       
+        <form class="form-control" action="POST">
+            <h2>Add Tasks</h2>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="propertyId" value="<%= checklist.property %>">
+
+            Checklist Title: <input type="text" id="listTitle"><br>
+            <ul id="tasks">
+            </ul>
+            Task Title: <input type="text" id="tasktitle" value=""><br> 
+            Task Description: <input type="textarea" id="description"  rows="5"><br> 
+            <button id="submitTask" onclick="addTask()">Submit</button>
+        </form>
+        <script src="/scripts/fetch.js"></script>
+        <script>
+           const addTask = () => {
+                let tasks = document.getElementById('tasks').value;
+                let title = document.getElementById('taskTitle').value;
+                const li = document.createElement('li');
+                li.appendChild(title);
+                tasks.appendChild(li);
+                
+           }
+        </script>
+
+    </main>
+<%- include('../includes/end.ejs') %>
+

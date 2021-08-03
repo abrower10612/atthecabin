@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/photos.css">
+</head>
+
+<body>
+    <main>
+        <%- include('../includes/nav.ejs') %>
+        <div class="admin-image-upload-container">
+            <h2>Admin Image Upload</h2>
+            <form 
+                action="/social/postPhoto" 
+                method="POST" 
+                enctype="multipart/form-data"
+                class="admin-image-form"
+            >
+                <% if (errorMessage != '') { %> 
+                    <p>Test</p>
+                <% } %>
+                <div>
+                    <label for="image">Image</label>
+                    <input 
+                        type="file" 
+                        name="image" 
+                        id="image" 
+                        class="image-upload"
+                    />
+                </div>
+                <div>
+                    <label for="title">Description</label>
+                    <textarea 
+                        class="admin-image-description"
+                        type="text" 
+                        name="description" 
+                        id="description" 
+                        value=""></textarea>
+                </div>
+                <input type="hidden" name="propertyId" value="<%= propertyId %>">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="admin-image-submit">Submit Image</button>
+            </form>
+        </div>
+    </main>
+<%- include('../includes/end.ejs') %>

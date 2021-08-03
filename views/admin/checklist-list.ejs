@@ -1,0 +1,52 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/user.css">
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+      <div class="inventory-form centered">
+        <h2><%= name %></h2>
+        <h4><%= location %></h4>
+      </div>
+      <% if (inventory) { %>
+      <form class="inventory-form"action="/inventory/update" method="POST">
+        <h4 class="centered">Update Inventory List</h4>
+        <div class="center-inventory">
+          <label class="inventory-input-label">Item</label>
+          <label class="inventory-amt-label">Amount</label>
+        </div>
+        <div class="inventory-control">
+          <% for (let inv of inventory.list) { %>
+            <div class="center-inventory">
+                <input type="text" class="inventory-input" name="item" value="<%= inv.description %>">
+                <input type="number" class="inventory-amt" name="amount" value="<%= inv.amount %>"> 
+                <input type="hidden" name="itemId" value="<%= inv._id %>">
+                <a class="delete-button" href="/inventory/delete/?propertyId=<%= propertyId %>&itemId=<%= inv._id %>">x</a>
+                <a class="delete-button-mobile" href="/inventory/delete/?propertyId=<%= propertyId %>&itemId=<%= inv._id %>">Delete <%= inv.description %></a>
+            </div>
+            <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="propertyId" value="<%= propertyId %>">
+            <button class="update-button" type="submit" name="update">Update All</button>
+          </div>
+      </form>
+      <% } else { %>
+        <div class="inventory-form centered">
+          <h4>No inventory is associated with this property. Add an item below to set up list.</h4>
+        </div>
+      <% } %>
+    <form class="inventory-form"action="/inventory/inventory" method="POST">
+      <h4 class="centered">Add Item to Inventory List</h4>
+      <div class="center-inventory">
+        <input type="text" class="inventory-input" name="inventory" placeholder="Enter Item">
+        <input type="number" class="inventory-amt-add" name="amount" placeholder="Enter Amount">
+      </div>
+      <button type="submit" class="update-button" name="button">Add Item</button>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <input type="hidden" name="propertyId" value="<%= propertyId %>">
+  </form>
+  
+    </main>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,39 @@
+.admin-property-dash-ctrls {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 20px 10px;
+}
+
+.admin-property-dash-ctrls a:nth-child(2) {
+    color: red;
+}
+
+.admin-card h2 {
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
+.admin-card h4{
+    font-size: 1.25rem;
+    margin: 0 15px;
+}
+
+.admin-property-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-property-btn {
+    display: block;
+    width: fit-content;
+}
+
+@media screen and (max-width: 800px) {
+    .new-property-btn {
+        width: 45%;
+        margin: 0.5rem;
+    }
+
+    
+}

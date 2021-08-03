@@ -1,0 +1,91 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <% if (message) { %>
+            <div class="user-message"><%= message %></div>
+        <% } %>
+        <form 
+            class="login-form" 
+            action="../../auth/edit-profile" method="POST"
+            enctype="multipart/form-data"
+        >
+            <div class="form-control">
+                <label for="first">First Name</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'first') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="first" 
+                    id="first" 
+                    value="<%= currentUser.firstName %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="last">Last Name</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'last') ? 'invalid' : '' %>"    
+                    type="text" 
+                    name="last" 
+                    id="last" 
+                    value="<%= currentUser.lastName %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="display">Display Name</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'last') ? 'invalid' : '' %>"    
+                    type="text" 
+                    name="display" 
+                    id="display" 
+                    value="<%= currentUser.displayName %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="email">Email Address</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'display') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="email" 
+                    id="email" 
+                    value="<%= currentUser.email %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="phone">Phone</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'phone') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="phone" 
+                    id="phone" 
+                    value="<%= currentUser.phone %>"
+                >
+            </div>
+            <div class="form-control">
+                <label for="image">Profile Picture</label>
+                <input
+                    type="file" 
+                    name="image" 
+                    id="image" 
+                >
+            </div>
+            <div class="centered">
+                <input type="hidden" name="userId" value="<%= currentUser._id %>">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="btn btn-default" type="submit">Update Profile</button>
+            </div>
+            <!-- <div class="centered">
+                <a href="../auth/update-password">Change Password</a>
+            </div>     -->
+            <div class="centered">
+                <a href="../auth/profile">Return to Account</a>
+            </div>        
+        </form>
+        
+    </main>
+<%- include('../includes/end.ejs') %>

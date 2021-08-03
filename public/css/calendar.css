@@ -1,0 +1,261 @@
+
+:root {
+    --alt-color: #6a837d;
+    --main-color: #0b3d44;
+    --border-color: #8cb1a8;
+}
+
+.calendar-body {
+    margin: 10px;
+}
+
+.wait {
+    cursor: wait;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 10px 2px;
+}
+
+.calendar {     
+    grid-column: 1/2;     
+    padding: 1vw;
+    font-size: 2vw;
+    text-align: center;
+    font-family: verdana;
+    margin: 1vw;    
+}
+
+.month-indicator {
+    margin-bottom: 1vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.month-indicator,
+.month-indicator button {
+    font-size: 3vw;
+    height: 5vw;    
+}
+
+.month-indicator button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    width: 5vw;
+}
+
+.month-indicator button:hover {
+    background-color: var(--border-color);
+    padding: 0;
+    height: 5vw;
+}
+
+.month-indicator button:focus {
+    outline: none;
+}
+
+.day-of-week,
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);    
+}
+
+.day-of-week div {
+    width: 8vw;
+    margin: 1vw 0;
+}
+
+.date-grid button {
+    width: 8vw;
+    height: 8vw;
+    padding-top: calc(width);
+    font-size: 2vw;        
+    border-radius: 10px;
+    cursor: default;        
+}
+
+.image-grid {
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-column: 1/-1;
+}
+
+.image-container {
+    float: left;
+    width: 16vw;
+    height: 16vw;
+    border-radius: 10px;
+    margin: 0.5vw;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.reservation {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.reservation h1 {
+    font-family: verdana;
+    font-size: 2.5vw;
+    font-weight: normal;
+}
+
+.reservation label {
+    font-family: verdana;
+    width: 100%;
+    padding: 0 1vw;
+    margin: 0 0.5vw;
+    font-size: 1.25vw;
+    display: inline block;
+}
+
+.reservation input,
+.reservation textarea {
+    font-family: verdana;
+    width: 100%;
+    padding: 1vw 1vw;
+    margin: 1vw;
+    font-size: 1vw;
+    display: inline block;
+    border: 1px solid var(--alt-color);
+    border-radius: 5px;
+}
+
+.reservation input.error {
+    border: 1px solid red;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.date-grid button.unavailable {
+    background-color: var(--main-color);
+}
+
+.date-grid button.lower-right {    
+    background: linear-gradient(to bottom right, white 0%, white 50%, var(--main-color) 50%, var(--main-color) 100%)    
+}
+
+.date-grid button.lower-right:hover {
+    width: 100%;
+    height: 100%;    
+    background: linear-gradient(to bottom right, var(--border-color) 0%, var(--border-color) 50%, var(--main-color) 50%, var(--main-color) 100%)
+}
+
+.date-grid button.upper-left {    
+    background: linear-gradient(to bottom right, var(--main-color) 0%, var(--main-color) 50%, white 50%, white 100%)
+}
+
+.date-grid button.upper-left:hover {    
+    background: linear-gradient(to bottom right, var(--main-color) 0%, var(--main-color) 50%, var(--border-color) 50%, var(--border-color) 100%)
+}
+
+form button {    
+    margin: 5px auto 20px 1vw;
+    width: 66%;
+    font-family: verdana;   
+    font-size: 1.25rem;        
+}
+
+#errorBox {
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
+    background-color: rgb(245, 226, 226);
+    color: red;
+}
+
+.no-display {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .main-grid {        
+        grid-template-columns: 1fr;        
+    }
+
+    .calendar {
+      width: 95%;
+    }
+
+    .month-indicator,
+    .month-indicator button {
+        font-size: 6vw;
+        padding: 0.5vw;
+        height: 10vw;
+    }
+
+    .month-indicator button {
+        width: 10vw;
+    }
+
+    .month-indicator button:hover {
+        height: 10vw;
+        width: 10vw;
+    }
+
+    .day-of-week div {
+        width: 10vw;
+        font-size: 4vw;
+    }
+
+    .date-grid button {
+        width: 10vw;
+        height: 10vw;
+        font-size: 4vw;
+        margin: 1vw 0.25vw;
+    }
+
+    .weather-info {
+        width: 90%;
+        height: 10%;
+        font-size: 4vw;
+        margin: 3vw;
+    }
+
+    .reservation {
+        grid-template-columns: 2/-1;
+        width: 95%;
+    }
+
+    .reservation label, 
+    .reservation input, 
+    .reservation textarea,
+    .reservation h1 {
+        font-size: 4vw;
+        width: 95%;
+    }
+
+    #reserve {
+        width: 95%;
+        height: 10vw;
+        font-size: 5vw;
+        padding: 0.5vw;
+    }
+
+    .image-grid {
+        width: 80vw;
+        margin: auto;
+    }
+    .image-container {
+        width: 80vw;
+        height: 80vw;
+        margin: 0.25rem auto;
+    }
+    
+  }
+
+  

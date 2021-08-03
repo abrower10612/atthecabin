@@ -1,0 +1,87 @@
+.admin-image-upload-container {
+    margin-top: 100px;
+}
+
+h2 {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+}
+
+.admin-image-form {
+    display: block;
+    margin: 5px auto;
+    border: solid 2px black;
+    width: 30%;
+    padding: 15px;
+}
+
+.admin-image-submit {
+    width: fit-content;
+    font-size: 1.25rem;
+    margin: 20px 0;
+}
+
+.admin-image-form label {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.admin-image-form input {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* EDIT USER PHOTO */
+
+.current-user-image {
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+@media(max-width: 800px) {
+    .admin-image-upload-container {
+        margin-top: 50px;
+    }
+    
+    h2 {
+        width: fit-content;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .admin-image-form {
+        display: block;
+        margin: 10px auto;
+        border: solid 2px black;
+        width: 90%;
+        padding: 15px;
+    }
+
+    .image-upload {
+        width: 90%;
+    }
+    
+    .admin-image-submit {
+        width: fit-content;
+        font-size: 1.25rem;
+        margin: 20px 0;
+    }
+    
+    .admin-image-form label {
+        display: block;
+        font-size: 1.5rem;
+    }
+    
+    .admin-image-form input {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    /* EDIT USER PHOTO */
+    
+    .current-user-image {
+        width: 50%;
+        margin-bottom: 50px;
+    }
+}
